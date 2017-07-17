@@ -1,24 +1,47 @@
-# README
+# Models
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# User
+## association
+- has_many: plans
+## columns(type: mysql)
+- uid: int
+- provider: string
+- name: string
+- age: int
+- sex: int
+- profile: text
+- avatar: string
 
-Things you may want to cover:
 
-* Ruby version
+# Plan
+## association
+- belongs_to: user
+- has_many: requests
+- has_one: location
+## columns(type: mysql)
+- start_date: date
+- finish_date: date
+- description: text
+- user_id: foreign_key
 
-* System dependencies
 
-* Configuration
+# Location
+## association
+- belongs_to: plan
+## columns(type: mysql)
+- name: string
+- latitude: int
+- longitude: int
+- plan_id: foreign_key
 
-* Database creation
 
-* Database initialization
+# Request
+## association
+- belongs_to: plan
+## columns(type: mysql)
+- sender_user: string
+- status: int
+- plan_id: foreign_key
+- plan_user: foreign_key
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
