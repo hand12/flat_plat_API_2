@@ -1,8 +1,10 @@
 class PlansController < ApplicationController
   def create
     plan = Plan.new(plan_params)
-
-    unless plan.save
+    if plan.save
+      location = plan.build_location(location_params)
+      @error_message = location.errors.messages unless location.save
+    else
       @error_message = plan.errors.messages
     end
 
@@ -12,6 +14,10 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.permit(:start_date, :finish_date, :description)
+    params.require(:plan).permit(:start_date, :finish_date, :description)
+  end
+
+  def location_params
+    params.require(:plan).require(:location).permit(:name, :latitude, :longitude)
   end
 end
