@@ -1,1 +1,1 @@
-json.error_message @error_message if @error_message
+json.set! :error, @error_message if @error_message
