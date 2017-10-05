@@ -1,5 +1,9 @@
 class PlansController < ApplicationController
 
+  def index
+    render json: {"hoge": "fuga"}
+  end
+
   def create
     plan = Plan.new(plan_params)
     location = Location.new(location_params)
