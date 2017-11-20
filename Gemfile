@@ -24,5 +24,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
+# dockerの時は、docker attach コンテナ名で接続（enter押さないとpryが始まらない）
+# 抜ける時は、ctrl + P とctrl + Q を押す
 gem 'geocoder'
 gem 'rack-cors', :require => 'rack/cors'

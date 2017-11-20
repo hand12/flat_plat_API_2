@@ -15,10 +15,10 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:start_date, :finish_date, :description)
+    params.permit(:start_date, :finish_date, :description)
   end
 
   def location_params
-    params.require(:location).permit(:name, :latitude, :longitude)
+    params.permit(:name, :latitude, :longitude)
   end
 end
